@@ -1,16 +1,16 @@
-# Kenzap Cloud My Data Extension
+# Kenzap Cloud Pages - MyTicket Layouts
 
-With the help of this extension you can view, manage and update any data chunk stored in the Kenzap Cloud.
+A set of myticket layouts designed for https://pages.kenzap.cloud/
 
-![My Data extension dashboard](https://raw.githubusercontent.com/kenzap/my-data/main/preview.png)
+![My Data extension dashboard](https://raw.githubusercontent.com/kenzap/pages-myticket/main/preview.jpeg)
 
-<b>This extension is responsible for:</b>
+<b>Included layouts:</b>
 
 <ul>
-<li>Grouping datasets by extension name.</li>
-<li>Global data search.</li>
-<li>Viewing data.</li>
-<li>JSON Editing.</li>
+<li>Event Hall - Seat reservation module</li>
+<li>Single event listing</li>
+<li>Event grid listing</li>
+<li>Event thank you page for checkout</li>
 </ul>
 
 ## Setup

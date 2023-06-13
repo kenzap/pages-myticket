@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title></title> 
+		<meta name="Description" content="" />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link href="https://fonts.googleapis.com/css?family=Poppins:400,600|Roboto" rel="stylesheet">
+		<link href="../assets/css/global.css?t=1686678130587" rel="stylesheet">
+		<link href="styles.css?t=1686678130587" rel="stylesheet">
+	</head>
+	<body>
+		<div id="content">
+
+
+		</div>
+		<script type="text/javascript" src="index.js?t=1686678130587"></script>
+		<script>
+
+			document.addEventListener("DOMContentLoaded", () => {
+						
+				new k2ZAuN(
+					{
+						"version": "1.0.0",
+						"title": "Event Hall",
+						"slug": "event-hall",
+						"description": "",
+						"preview": true,
+						"template": "universal",
+						"keywords": "booking, seat map, charts, events, MyTicket",
+						"csslibs": "",
+						"jslibs": "",
+						// "sid" : 1000000,
+						// "sid" : 1002942, // deetz
+						// "sid" : 1003165, // myticket
+						"sid" : 1001819, // nsa
+						"id":"test",
+						"header": {
+							"input": "richtext",
+							"title": "Header",
+							"value": "",
+							"hint": "Header title or description."
+						},
+						"rendertype": {
+							"input": "radio",
+							"title": "Render Type",
+							"value": "zone",
+							"default": "zone",
+							"options": [
+								{ "key": "seat", "value": "Seat Mode" },
+								{ "key": "zone", "value": "Zone Mode" }
+							],
+							"hint": "Specify seating chart rendering mode"
+						},
+						"seatshape": {
+							"input": "radio",
+							"title": "Seat Shape",
+							"value": "circle",
+							"default": "circle",
+							"options": [
+								{ "key": "circle", "value": "Circle" },
+								{ "key": "rect", "value": "Square" }
+							],
+							"hint": "Specify seating chart seat shape"
+						},
+						"checkoutbtn": {
+							"input": "radio",
+							"title": "Checkout Button",
+							"value": "fixed",
+							"default": "fixed",
+							"options": [
+								{ "key": "table", "value": "Below Layout" },
+								{ "key": "fixed", "value": "Always Visible" }
+							],
+							"hint": "Specify seating chart seat shape"
+						},
+						"posmode": {
+							"input": "radio",
+							"title": "POS Mode",
+							"value": "2",
+							"default": "2",
+							"options": [
+								{ "key": "0", "value": "Disabled" },
+								{ "key": "1", "value": "Enabled" },
+								{ "key": "2", "value": "Enabled with booking management" }
+							],
+							"hint": "Enable POS mode for offline checkout."
+						},
+						"numbersize": {
+							"input": "range",
+							"title": "Seat Number Size",
+							"value": "15",
+							"default": "4",
+							"min": "8",
+							"max": "24",
+							"hint": "Seat number size"
+						},
+						"seatsize": {
+							"input": "range",
+							"title": "Seat Size",
+							"value": "40",
+							"default": "40",
+							"min": "10",
+							"max": "100",
+							"hint": "Seat size in pixels"
+						},
+						"borderstyle": {
+							"input": "range",
+							"title": "Border Style",
+							"value": "4",
+							"default": "4",
+							"min": "0",
+							"max": "40",
+							"hint": "Specify border roundness in pixels"
+						},
+						"note": {
+							"input": "text",
+							"title": "Note",
+							"value": "Click on the seat to place the relevant ticket in your cart.",
+							"default": "Click on the seat to place the relevant ticket in your cart.",
+							"hint": "Specify a note for users to assists with booking"
+						},
+						"notelocation": {
+							"input": "radio",
+							"title": "Layout Note",
+							"value": "above",
+							"default": "below",
+							"options": [
+								{ "key": "above", "value": "Above" },
+								{ "key": "below", "value": "Below" },
+								{ "key": "hidden", "value": "Hidden" }
+							],
+							"hint": "Layout user note location"
+						},
+						"stc": {
+							"input": "color",
+							"title": "Seat Number Color",
+							"value": "#ffffff",
+							"default": "#ffffff",
+							"hint": "Seat number color"
+						},
+						"avc": {
+							"input": "color",
+							"title": "Reservation Color (Available)",
+							"value": "#64c902",
+							"default": "#b1e2a5",
+							"hint": "Color of available seats and zones"
+						},
+						"soc": {
+							"input": "color",
+							"title": "Reservation Color (Sold Out)",
+							"value": "#0080cf",
+							"default": "#afc3e5",
+							"hint": "Color of available seats and zones"
+						},
+						"sec": {
+							"input": "color",
+							"title": "Reservation Color (Selected)",
+							"value": "#d9455c",
+							"default": "#f78da7",
+							"hint": "Color of available seats and zones"
+						},
+						"colorintensity": {
+							"input": "range",
+							"title": "Color Intensity",
+							"value": "70",
+							"default": "50",
+							"min": "0",
+							"max": "100",
+							"hint": "Specify Available, Sold Out, Selected color intensity"
+						},
+						"zonebgvisibility": {
+							"input": "range",
+							"title": "Zone Background Opacity",
+							"value": "90",
+							"default": "90",
+							"min": "0",
+							"max": "100",
+							"hint": "Adjust visibility intensity of zone background "
+						},
+						"responsiveness": {
+							"input": "range",
+							"title": "Responsiveness",
+							"value": "30",
+							"default": "30",
+							"min": "1",
+							"max": "40",
+							"hint": "Automatically reduce layout width for mobile devices"
+						},
+						"ticketspbooking": {
+							"input": "range",
+							"title": "Tickets per booking",
+							"value": "10",
+							"default": "10",
+							"min": "1",
+							"max": "1000",
+							"hint": "Maximum number of tickets per booking."
+						},
+						"c": {
+							"section": "background-color:#ffffff;",
+							"container": "max-width:1800px;padding-left:16px;padding-right:16px;",
+							"classes": "pdm "
+						}
+					}
+				);			
+			});
+
+		</script>
+	</body>
+</html>
