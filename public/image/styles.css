@@ -1,0 +1,20 @@
+.kaxJOx .container {
+  max-width: 1168px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+.kaxJOx .icont {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.kaxJOx .icont img {
+  width: 100%;
+}
+
+.kaxJOx .icont p {
+  margin: 0;
+  color: var(--txtColorB);
+}

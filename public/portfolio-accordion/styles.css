@@ -1,0 +1,216 @@
+.kHSMSE :before,
+.kHSMSE :after,
+.kHSMSE * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.kHSMSE .container {
+  max-width: 1168px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+.kHSMSE .info-box {
+  position: relative;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-align-items: center;
+  padding: 48px 0;
+  min-height: 720px;
+}
+
+.kHSMSE.kp-right .info-box {
+  justify-content: flex-end;
+  -webkit-justify-content: flex-end;
+}
+
+.kHSMSE.kp-left .info-box {
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+}
+
+.kHSMSE .kp-img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.kHSMSE.kp-left .kp-img {
+  left: 20%;
+  right: 0;
+}
+
+.kHSMSE.kp-right .kp-img {
+  right: 20%;
+  left: 0;
+}
+
+.kHSMSE .kp-content {
+  padding: 50px 60px;
+  -webkit-box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.06);
+  background: var(--txtColorC);
+  position: relative;
+  width: 50%;
+}
+
+.kHSMSE .kp-content .accordion {
+  list-style: none;
+  padding: 0;
+}
+
+.kHSMSE .kp-content .accordion .inner {
+  overflow: hidden;
+  display: none;
+}
+
+.kHSMSE .kp-content .accordion .inner.show {
+  display: block;
+}
+
+.kHSMSE .kp-content .accordion .inner p {
+  color: var(--txtColorB);
+  display: inline-block;
+}
+
+.kHSMSE .kp-content .accordion li a.toggle {
+  text-decoration: none;
+  display: block;
+  color: inherit;
+  width: 100%;
+  background: none;
+  color: var(--txtColorA);
+  padding: 16px 32px 16px 0;
+  border-bottom: 1px solid var(--grayColorB);
+  font-size: 1.2rem;
+  outline: none;
+  position: relative;
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.kHSMSE .kp-content .accordion li a span {
+  margin: 0 12px 0 0;
+  color: var(--txtColorB);
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.kHSMSE .kp-content .accordion .plus {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.kHSMSE .kp-content .accordion .plus:before {
+  position: absolute;
+  content: "";
+  height: 2px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: var(--txtColorB);
+  transition: color 0.2s ease-out, background-color 0.2s ease-out;
+}
+
+.kHSMSE .kp-content .accordion .plus:after {
+  position: absolute;
+  content: "";
+  width: 2px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: var(--txtColorB);
+  transition: color 0.2s ease-out, background-color 0.2s ease-out;
+}
+
+.kHSMSE .kp-content .accordion li a.active .plus:after {
+  top: 50%;
+  bottom: 50%;
+}
+
+.kHSMSE .kp-content .accordion li a.toggle:hover .plus:before,
+.kHSMSE .kp-content .accordion li a.toggle:hover .plus:after,
+.kHSMSE .kp-content .accordion li a.active .plus:before,
+.kHSMSE .kp-content .accordion li a.active .plus:after {
+  background: var(--accColorA);
+}
+
+.kHSMSE .kp-content .accordion li a.active,
+.kHSMSE .kp-content .accordion li a.active span,
+.kHSMSE .kp-content .accordion li a.toggle:hover span,
+.kHSMSE .kp-content .accordion li a.toggle:hover {
+  color: var(--accColorA);
+}
+
+.kHSMSE.kenzap-md .kp-content {
+  width: 70%;
+}
+
+.kHSMSE.kp-right.kenzap-sm .kp-img,
+.kHSMSE.kp-right.kenzap-xs .kp-img {
+  right: 0;
+}
+
+.kHSMSE.kp-left.kenzap-sm .kp-img,
+.kHSMSE.kp-left.kenzap-xs .kp-img {
+  left: 0;
+}
+
+.kHSMSE.kenzap-sm .kp-content,
+.kHSMSE.kenzap-xs .kp-content {
+  width: 100%;
+  margin: 0 30px;
+  padding: 30px;
+  background: var(--txtColorC);
+  opacity: 0.9;
+}
+
+.kHSMSE.kenzap-sm .info-box,
+.kHSMSE.kenzap-xs .info-box {
+  min-height: auto;
+}
+
+@media screen and (max-width: 61.938em) {
+  /* width: 991px; */
+  .kHSMSE .kp-content {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 48em) {
+  /* width 768px */
+  .kHSMSE.kp-right .kp-img {
+    right: 0;
+  }
+  .kHSMSE.kp-left .kp-img {
+    left: 0;
+  }
+  .kHSMSE.kenzap-md .kp-content,
+  .kHSMSE .kp-content {
+    width: 100%;
+    margin: 0 0px;
+    padding: 30px;
+    background: var(--txtColorC);
+    opacity: 0.9;
+  }
+  .kHSMSE .info-box {
+    min-height: auto;
+  }
+}

@@ -1,0 +1,17 @@
+.kQuDWD .container {
+  max-width: 1168px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+.kQuDWD .spacer {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+}
+
+.kQuDWD .spacer p {
+  margin: 0;
+}

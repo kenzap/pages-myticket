@@ -1,0 +1,94 @@
+.kx0SBH .menu-cont {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  width: 2.8rem;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.kx0SBH .menu-cont input {
+  display: none;
+  cursor: pointer;
+}
+
+.kx0SBH .menu-cont input:checked ~ span {
+  background: var(--txtColorA);
+}
+
+.kx0SBH .menu-cont span {
+  display: block;
+  width: 100%;
+  height: 0.44rem;
+  margin: 0.44rem 0;
+  background: var(--txtColorB);
+  border-radius: 0.25rem;
+  transition: all 300ms ease;
+}
+
+.kx0SBH .menu-cont:hover span:nth-child(3) {
+  width: 50%;
+}
+
+.kx0SBH .menu-cont:hover span:nth-child(4) {
+  width: 25%;
+}
+
+.kx0SBH .menu-drawer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 240px;
+  padding: 0 4rem;
+  font-size: 1.4rem;
+  z-index: 1;
+  background: var(--grayColorA);
+  will-change: transform opacity;
+  transition: all 500ms cubic-bezier(0.14, 0.65, 0.15, 1);
+}
+
+.kx0SBH .menu-drawer[opened=false] {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.kx0SBH .menu-drawer[opened=true] {
+  transform: none;
+  opacity: 1;
+}
+
+.kx0SBH .menu-drawer nav {
+  margin: 0;
+  padding: 6rem 0;
+}
+
+.kx0SBH .menu-drawer nav a {
+  display: block;
+  margin: 16px 0;
+  cursor: pointer;
+}
+
+.kx0SBH .menu-drawer nav a {
+  font-style: none;
+  font-size: 1.5rem;
+  color: var(--txtColorA);
+  text-decoration: none;
+}
+
+.kx0SBH .menu-drawer nav a:hover {
+  color: var(--linkColorA);
+  text-decoration: underline;
+}
+
+@media (max-width: 400px) {
+  .kx0SBH .menu-drawer {
+    padding: 0 2rem;
+  }
+}
+@media (max-width: 1000px) {
+  .kx0SBH .menu-cont {
+    top: 15px;
+    left: 15px;
+  }
+}

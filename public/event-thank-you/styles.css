@@ -1,0 +1,139 @@
+#contents {
+  margin-top: 82px;
+}
+
+footer {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.po {
+  cursor: pointer;
+}
+
+/*--------------------------------------------------------------
+	Download Ticket Page
+--------------------------------------------------------------*/
+.kZtMlO .section-page-header {
+  background: transparent;
+  border-top: 1px solid var(--grayColorB);
+  border-bottom: 1px solid var(--grayColorB);
+  margin: 0;
+  padding: 40px 15px;
+}
+
+.kZtMlO .section-page-header .entry-title {
+  margin: 0;
+  font-size: 28px;
+  color: var(--txtColorB);
+  text-align: center;
+  text-transform: uppercase;
+  border: none;
+  padding: 0;
+}
+
+.kZtMlO .section-page-content {
+  padding: 70px 0;
+  background: transparent;
+}
+
+.kZtMlO .primary-link {
+  display: block;
+  font-size: 16px;
+  color: #fff;
+  border: 1px solid var(--baseColorA);
+  background: var(--baseColorA);
+  border-radius: var(--borderStyle);
+  text-align: center;
+  padding: 20px 28px;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.kZtMlO .primary-link:hover {
+  color: var(--baseColorA);
+  background: #fff;
+}
+
+.kZtMlO .secondary-link {
+  display: block;
+  font-size: 16px;
+  border: 1px solid var(--baseColorA);
+  color: var(--baseColorA);
+  background: #fff;
+  border-radius: var(--borderStyle);
+  text-align: center;
+  padding: 20px;
+  text-transform: uppercase;
+}
+
+.kZtMlO .secondary-link:hover {
+  color: #fff;
+  background: var(--baseColorA);
+  border: 1px solid #fff;
+}
+
+.kZtMlO .hide-scroll {
+  overflow-y: hidden;
+}
+
+.kZtMlO .section-download-ticket {
+  background: transparent url(https://static.kenzap.com/layouts/event/download-ticket-bg.png) no-repeat center top;
+  text-align: center;
+  padding: 50px 0 0;
+}
+
+.kZtMlO .section-download-ticket-multi img,
+.kZtMlO .section-download-ticket img {
+  display: block;
+  margin: 0 auto 120px;
+}
+
+.kZtMlO .section-download-ticket-multi p,
+.kZtMlO .section-download-ticket p {
+  color: var(--txtColorB);
+  font-size: 20px;
+  display: block;
+  margin: 0 0 20px;
+  line-height: 100%;
+  line-height: 1.2;
+}
+
+.kZtMlO .section-download-ticket-multi p strong,
+.kZtMlO .section-download-ticket p strong {
+  color: var(--baseColorA);
+}
+
+.kZtMlO .section-download-ticket-multi p span,
+.kZtMlO .section-download-ticket p span {
+  color: var(--baseColorA);
+}
+
+.kZtMlO .section-download-ticket-multi .primary-link,
+.kZtMlO .section-download-ticket .primary-link {
+  margin: 32px auto 32px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+@media (min-width: 1200px) {
+  .kZtMlO .container {
+    width: 1168px;
+  }
+}
+@media (min-width: 992px) {
+  .kZtMlO .container {
+    width: 970px;
+  }
+}
+@media (min-width: 768px) {
+  .kZtMlO .container {
+    width: 750px;
+  }
+}
+.kZtMlO .container {
+  padding-right: 16px;
+  padding-left: 16px;
+  margin-right: auto;
+  margin-left: auto;
+}

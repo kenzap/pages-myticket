@@ -1,0 +1,41 @@
+
+:root {
+    --txtColorA: #111111;
+    --txtColorB: #818181;
+    --txtColorC: #ffffff;
+    --linkColorA: #1941DF;
+    --linkColorB: #1941dfd0;
+    --baseColorA: #1941df;
+    --baseColorB: #1941df;
+    --accColorA: #1941df;
+    --accColorB: #1941df;
+    --grayColorA: #F7F7F7;
+    --grayColorB: #c0c0c0;
+    --grayColorC: #818181;
+  }
+  html{font-size:16px; line-height: 1.75; -webkit-text-size-adjust: 100%; }
+  body{margin: 0; line-height: 1.75; font-weight: 400; font-family: Red Hat Mono; color: var(--txtColorA); }
+  h1, h2, h3, h4, h5{font-weight: 600; line-height: 1.3; margin: 3rem 0 1.38rem; font-family: Red Hat Mono}
+  h1{font-size: 3.052em;}
+  h2{font-size: 2.441em;}
+  h3{font-size: 1.953em;}
+  h4{font-size: 1.563em;}
+  h5{font-size: 1.25em;}
+  p{margin-bottom: 1rem;}
+  b,strong{font-weight: 600;}
+  small{font-size: 80%;}
+  
+  /* section spacings */
+  section.pd0{padding-top:0;padding-bottom:0;}
+  section.pds{padding-top:32px;padding-bottom:32px;}
+  section.pdm{padding-top:64px;padding-bottom:64px;}
+  section.pdl{padding-top:128px;padding-bottom:128px;}
+  section.pde{padding-top:172px;padding-bottom:172px;}
+  @media screen and (max-width: 500px){ .section.pdl, section.pde{padding-top:64px;padding-bottom:64px;} }
+  
+  /* button styles */
+  .btns,.btnl,.btn{transition:all 0.24s;margin-bottom:1rem;padding: 0.5rem 1.5rem;border: 1px solid var(--baseColorA);text-decoration: none;color: var(--txtColorA);display: inline-block;}
+  .btns{padding: 0.5rem 0.75rem;font-size: 0.8rem;line-height: 1rem;}
+  .btnl{padding: 1rem 2rem;font-size: 1.2rem;line-height: 1rem;}
+  .btns:hover,.btnl:hover,.btn:hover{background-color: var(--baseColorA);color: var(--txtColorC);}
+  

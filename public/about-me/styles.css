@@ -1,0 +1,44 @@
+.kE4q9H img, .kE4q9H ul, .kE4q9H li {
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  border: none;
+  text-decoration: none;
+  list-style: none;
+}
+
+.kE4q9H .container {
+  max-width: 1170px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.kE4q9H .info-box {
+  margin: 0 auto;
+}
+
+.kE4q9H .info-box .kp-img {
+  margin: 0 auto 0px auto;
+}
+
+.kE4q9H .info-box .kp-img img {
+  border-radius: 50%;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.kE4q9H .info-box .kp-content p {
+  color: var(--txtColorA);
+  font-style: normal;
+}
+
+.kE4q9H.kenzap-xs .info-box, .kE4q9H.kenzap-sm .info-box {
+  width: 100%;
+}
+
+@media screen and (max-width: 48em) {
+  /* width 768px */
+  .kE4q9H .info-box {
+    width: 100%;
+  }
+}

@@ -1,0 +1,175 @@
+.kwcHep .container {
+  width: 100%;
+  max-width: 1168px;
+  margin: 0 auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.kwcHep {
+  background-position: center center;
+  background-size: cover;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* navbar regular css start */
+.kwcHep .site-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.kwcHep a.site-logo {
+  font-size: 26px;
+  text-transform: uppercase;
+  color: var(--txtColorA);
+  text-decoration: none;
+}
+
+.kwcHep a.site-logo img {
+  display: block;
+  width: 120px;
+  height: auto;
+}
+
+.kwcHep .site-navbar ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.kwcHep .site-navbar ul li a {
+  color: var(--linkcolor);
+  padding: 16px;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.kwcHep .site-navbar ul li {
+  transition: all 0.3s;
+}
+
+.kwcHep .site-navbar ul li:hover {
+  background: var(--txtColorA);
+}
+
+.kwcHep .site-navbar ul li:hover a {
+  color: var(--txtColorC);
+}
+
+/* nav-toggler css start */
+.kwcHep .nav-toggler {
+  border: 3px solid transparent;
+  padding: 5px;
+  background-color: transparent;
+  cursor: pointer;
+  height: 39px;
+  display: none;
+}
+
+.kwcHep .nav-toggler span,
+.kwcHep .nav-toggler span:before,
+.kwcHep .nav-toggler span:after {
+  width: 28px;
+  height: 3px;
+  background-color: var(--txtColorA);
+  display: block;
+  transition: 0.3s;
+}
+
+.kwcHep .nav-toggler span:before {
+  content: "";
+  transform: translateY(-9px);
+}
+
+.kwcHep .nav-toggler span:after {
+  content: "";
+  transform: translateY(6px);
+}
+
+.kwcHep .nav-toggler.toggler-open span {
+  background-color: transparent;
+}
+
+.kwcHep .nav-toggler.toggler-open span:before {
+  transform: translateY(0px) rotate(45deg);
+}
+
+.kwcHep .nav-toggler.toggler-open span:after {
+  transform: translateY(-3px) rotate(-45deg);
+}
+
+/* intro-area css start */
+.kwcHep .intro-area {
+  height: calc(100vh - 61px);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--txtColorA);
+}
+
+.kwcHep .intro-area h2 {
+  font-size: 50px;
+  font-weight: 300;
+  line-height: 50px;
+  margin-bottom: 25px;
+}
+
+.kwcHep .intro-area p {
+  font-size: 18px;
+}
+
+/* intro-area css end */
+/* mobile breakpoint start */
+@media screen and (max-width: 767px) {
+  .kwcHep .container {
+    max-width: 720px;
+  }
+  /* navbar css for mobile start */
+  .kwcHep .nav-toggler {
+    display: block;
+  }
+  .kwcHep .site-navbar {
+    min-height: 60px;
+  }
+  .kwcHep .site-navbar ul {
+    position: absolute;
+    width: 100%;
+    height: calc(100vh - 60px);
+    left: 0;
+    top: 60px;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid var(--grayColorA);
+    background-color: var(--txtColorC);
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.3s;
+  }
+  .kwcHep .site-navbar ul li {
+    width: 100%;
+    text-align: center;
+  }
+  .kwcHep .site-navbar ul li a {
+    padding: 16px;
+  }
+  .kwcHep .site-navbar ul li a:hover {
+    background-color: var(--txtColorA);
+    color: var(--txtColorC);
+  }
+  .kwcHep .site-navbar ul.open {
+    max-height: 100vh;
+    overflow: visible;
+    z-index: 1000;
+  }
+  .kwcHep .intro-area h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+  }
+  /* navbar css for mobile end */
+}
+/* mobile breakpoint end */

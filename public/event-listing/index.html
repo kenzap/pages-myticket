@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title></title> 
+		<meta name="Description" content="" />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link href="https://fonts.googleapis.com/css?family=Poppins:400,600|Roboto" rel="stylesheet">
+		<link href="../assets/css/global.css?t=1685085505366" rel="stylesheet">
+		<link href="styles.css?t=1685085505366" rel="stylesheet">
+	</head>
+	<body>
+		<div id="content">
+
+
+		</div>
+		<script type="text/javascript" src="index.js?t=1685085505366"></script>
+		<script>
+
+			document.addEventListener("DOMContentLoaded", () => {
+						
+				new kibGiH(
+					{ 
+						"version": "1.0.0",
+						"title": "Event Listing",
+						"slug": "event-listing",
+						"description": "Ticket listing marketplace layout integrated with MyTicket Extension",
+						"preview": true,
+						"template": "universal",
+						"keywords": "events, marketplace, listing, myticket",
+						"sid" : 1002942,
+						"header": {
+							"input": "richtext",
+							"title": "Header",
+							"value": "<h2>Upcoming Events</h2>",
+							"hint": "Header title or description."
+						},
+						"borderstyle": {
+							"input": "range",
+							"title": "Border Style",
+							"value": "4",
+							"default": "4",
+							"min": "0",
+							"max": "40",
+							"hint": "Specify border roundness in pixels"
+						},
+						"category": {
+							"input": "text",
+							"title": "Category (Optional)",
+							"value": "",
+							"default": "",
+							"hint": "Provide one category to filter listing results"
+						},
+						"csslibs": "",
+						"jslibs": "",
+						"keywords": "About Me",
+						"c": {
+							"section": "background-color:#f9f9f9;",
+							"container": "max-width:1168px;padding-left:16px;padding-right:16px;",
+							"classes": "pdm "
+						}
+					}
+				);			
+			});
+
+		</script>
+	</body>
+</html>

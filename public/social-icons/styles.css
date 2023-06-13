@@ -1,0 +1,92 @@
+.kB9kJP :before,
+.kB9kJP :after,
+.kB9kJP * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.kB9kJP ul,
+.kB9kJP li,
+.kB9kJP p,
+.kB9kJP a {
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  border: none;
+  text-decoration: none;
+  list-style: none;
+}
+
+.kB9kJP h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+.kB9kJP {
+  padding: 64px 0;
+  background: var(--txtColorA);
+}
+
+.kB9kJP .container {
+  max-width: 1168px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+.kB9kJP .kp-content ul {
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-align-items: center;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+
+.kB9kJP .kp-content ul li {
+  margin: 16px 48px 16px 0;
+  text-align: center;
+}
+
+.kB9kJP .kp-content ul li a {
+  font-size: 0.9rem;
+  line-height: 1rem;
+  color: var(--txtColorC);
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-align-items: center;
+}
+
+.kB9kJP .kp-content ul.kp-bottom li a {
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-align-items: center;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+
+.kB9kJP .kp-content ul.kp-right li a {
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-align-items: center;
+}
+
+.kB9kJP .kp-content ul.kp-bottom li a .kp-icon {
+  margin: 0 0 16px;
+}
+
+.kB9kJP .kp-content ul.kp-right li a .kp-icon {
+  margin: 0 16px 0 0;
+}
+
+.kB9kJP .kp-content ul li a .kp-icon {
+  margin: 0 12px 0 0;
+  display: inline-block;
+  height: 18px;
+}
