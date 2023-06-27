@@ -1,0 +1,128 @@
+.kAesnY img, .kAesnY ul, .kAesnY li{
+	padding: 0;
+	margin: 0;
+	box-shadow: none;
+	border: none;
+	text-decoration: none;
+	list-style: none;
+}
+
+.kAesnY :before,
+.kAesnY :after,
+.kAesnY *{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.kAesnY img,
+.kAesnY ul,
+.kAesnY li,
+.kAesnY p,
+.kAesnY a{
+	padding: 0;
+	margin: 0;
+	box-shadow: none;
+	border: none;
+	text-decoration: none;
+	list-style:none
+}
+
+.kAesnY .container{
+	max-width:1168px;
+	width:100%;
+	padding:0 16px;
+	margin:0 auto;
+}
+
+.kAesnY{
+	position:relative;
+	background-repeat:no-repeat;
+	background-position:center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	padding:100px 0;
+	display:flex;
+	display:-webkit-flex;
+	align-items:center;
+	-webkit-align-items:center;
+	justify-content:center;
+	-webkit-justify-content:center;
+	transition:all .3s
+}
+
+.kAesnY.kp-parallax{
+	 background-attachment: fixed;
+}
+
+.kAesnY:after{
+	content: "";
+	position:absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	background: var(--bgcolora);
+}
+
+.kAesnY .kp-content {
+    position:relative;
+	width:69%;
+	margin:0 auto;
+	z-index:999;
+	text-align:center;
+	
+}
+
+.kAesnY .kp-content .title{
+	color:var(--txtColorC);
+	text-transform:uppercase;
+	margin:0 0 1.2rem;
+}
+
+.kAesnY .kp-content .caption{
+	font-size:1.2rem;
+	color:var(--txtColorC);;
+	margin:0 0 1.2rem;
+}
+
+.kAesnY .kp-content .action{
+	padding-top:0.2rem;
+}
+
+.kAesnY .kp-content .action a{
+	opacity:.6;
+	transition: all .3s
+}
+
+.kAesnY .kp-content .action a:hover{
+	opacity:1
+}
+
+.kAesnY.kenzap-md .kp-content{
+	width:80%
+}
+
+.kAesnY.kenzap-sm .kp-content,
+.kAesnY.kenzap-xs .kp-content{
+	width:100%
+}
+
+@media screen and (max-width: 61.938em){
+
+	/* width: 991px; */
+	.kAesnY .kp-content{
+		width:80%
+	}	
+}
+
+@media screen and (max-width: 48em){
+
+	/* width 768px */
+	.kAesnY.kenzap-md .kp-content,
+	.kAesnY .kp-content{
+		width:100%
+	}
+}

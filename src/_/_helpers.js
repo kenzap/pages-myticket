@@ -127,6 +127,37 @@ export const formatTime = (timestamp) => {
     return time;
 }
 
+/**
+ * Generates event link
+ * Points to Single Event page or Event Hall layout
+ * @public
+ * @param {Object} event - event
+ * @returns {Node} rendered HTML 
+ */
+export const eventLink = (event) => {
+ 
+    return (event.variations[0].layout == "true") ? `/hall/?id=${event._id}` : `/event/?id=${event._id}`;
+}
+
+/**
+ * Parse event price
+ * @public
+ * @param {Object} event
+ * @returns {Node} rendered HTML 
+ */
+export const eventPrice = (event) => {
+
+    let price = 999999999999999;
+
+    event.variations.forEach((v, i) => {
+
+        if(parseFloat(v.price) < price && v.type != 'hidden') price = parseFloat(v.price);
+    });
+
+    if(price == 999999999999999) price = 0;
+
+    return priceFormat(event.settings, price);
+}
 
 export const replaceQueryParam = (param, newval, search) => {
 

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title></title> 
+		<meta name="Description" content="" />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link href="https://fonts.googleapis.com/css?family=Poppins:400,600|Roboto" rel="stylesheet">
+		<link href="../assets/css/global.css?t=${timestamp}" rel="stylesheet">
+		<link href="styles.css?t=${timestamp}" rel="stylesheet">
+	</head>
+	<body>
+		<div id="content">
+
+
+		</div>
+		<script type="text/javascript" src="index.js?t=${timestamp}"></script>
+		<script>
+
+			document.addEventListener("DOMContentLoaded", () => {
+						
+				new kEfKay(
+					{ 
+						"version": "1.0.0",
+						"title": "Event Search Banner",
+						"slug": "event-search-banner",
+						"description": "",
+						"preview": false,
+						"template": "myticket",
+						"keywords": "events, listing, search, banner, myticket",
+						"sid" : 1002942,
+						"header": {
+							"input": "richtext",
+							"title": "Header",
+							"value": "",
+							"hint": "Header title or description."
+						},
+						"borderstyle": {
+							"input": "range",
+							"title": "Border Style",
+							"value": "4",
+							"default": "4",
+							"min": "0",
+							"max": "40",
+							"hint": "Specify border roundness in pixels"
+						},
+						"title": {
+							"input": "text",
+							"title": "Title",
+							"value": "Make Your Dream Come True",
+							"default": "",
+							"hint": "Banner subtitle"
+						},
+						"subtitle": {
+							"input": "text",
+							"title": "Subtitle",
+							"value": "Meet your favorite artists, sport teams and parties",
+							"default": "",
+							"hint": "Banner subtitle"
+						},
+						"searchtext": {
+							"input": "text",
+							"title": "Search Text",
+							"value": "Search Artists, Events, or Venues",
+							"default": "",
+							"hint": "Banner search input text"
+						},
+						"bgcolor": {
+							"input": "color",
+							"title": "Background color",
+							"value": "#1941df",
+							"default": "#1941df",
+							"hint": "Background color overlay"
+						},
+						"bgcolorintensity": {
+							"input": "range",
+							"title": "Background Color Intensity",
+							"value": "80",
+							"default": "80",
+							"min": "0",
+							"max": "100",
+							"hint": "Background color intensity"
+						},
+						"location": {
+							"input": "text",
+							"title": "Location",
+							"value": "Singapore",
+							"default": "",
+							"hint": "Location text"
+						},
+						"locationcta": {
+							"input": "text",
+							"title": "Location CTA",
+							"value": "All events",
+							"default": "",
+							"hint": "Location link call to action text"
+						},
+						"searchurl": {
+							"input": "text",
+							"title": "Search URL",
+							"value": "/event-search/",
+							"default": "",
+							"hint": "Banner subtitle"
+						},
+						"csslibs": "",
+						"jslibs": "",
+						"c": {
+							"section": "background-color:#f9f9f9;",
+							"container": "max-width:1168px;padding-left:16px;padding-right:16px;",
+							"classes": "pdm "
+						}
+					}
+				);			
+			});
+
+		</script>
+	</body>
+</html>

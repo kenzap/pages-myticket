@@ -1,0 +1,170 @@
+.kEfKay img, .kEfKay ul, .kEfKay li {
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  border: none;
+  text-decoration: none;
+  list-style: none;
+}
+
+.kEfKay :before,
+.kEfKay :after,
+.kEfKay * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.kEfKay img,
+.kEfKay ul,
+.kEfKay li,
+.kEfKay p,
+.kEfKay a {
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  border: none;
+  text-decoration: none;
+  list-style: none;
+}
+
+.kEfKay .container {
+  max-width: 1168px;
+  width: 100%;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+.kEfKay {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 686px;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+  transition: all 0.3s;
+}
+
+.kEfKay.kp-parallax {
+  background-attachment: fixed;
+}
+
+.kEfKay:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: var(--bgcolora);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#d91e18", endColorstr="#ff6600",GradientType=1 );
+}
+
+.kEfKay .kp-content {
+  position: relative;
+  z-index: 999;
+  text-align: center;
+}
+
+.kEfKay .kp-content .title {
+  color: var(--txtColorC);
+}
+
+.kEfKay .kp-content .caption {
+  font-size: 1.4rem;
+  color: var(--txtColorC);
+  margin: 0 0 2.4rem;
+}
+
+.kEfKay .kp-content .search {
+  margin: 0 0 2.4rem;
+}
+
+.kEfKay .kp-content .search input[type=text] {
+  border: 2px solid var(--txtColorC);
+  padding: 24px 80px 24px 42px;
+  color: var(--txtColorC);
+  font-size: 1.4rem;
+  line-height: 1;
+  width: 60%;
+  background: rgba(240, 243, 243, 0.2) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='currentColor' class='bi bi-search' viewBox='0 0 16 16'><path style='fill:white;' d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/></svg>") no-repeat 95% center;
+  border-radius: 50px;
+  margin: 0 auto;
+  outline: none;
+}
+
+.kEfKay .kp-content .search input[type=text]::-webkit-input-placeholder {
+  color: var(--txtColorC);
+}
+
+.kEfKay .kp-content .search input[type=text]::-moz-placeholder {
+  color: var(--txtColorC);
+}
+
+.kEfKay .kp-content .search input[type=text]:-ms-input-placeholder {
+  color: var(--txtColorC);
+}
+
+.kEfKay .kp-content .search input[type=text]:-moz-placeholder {
+  color: var(--txtColorC);
+}
+
+.kEfKay .kp-content .location p {
+  color: var(--txtColorC);
+  font-size: 1rem;
+  line-height: 1;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+
+.kEfKay .kp-content .location p img {
+  margin: 0 12px 0 0;
+}
+
+.kEfKay .kp-content .location p a {
+  font-size: 1rem;
+  line-height: 1;
+  opacity: 0.6;
+  text-decoration: underline;
+  color: var(--txtColorC);
+  margin: 0 5px;
+}
+
+.blocker {
+  z-index: 9999;
+}
+
+.kEfKay.kEfKay-md .kp-content .search input[type=text] {
+  width: 80%;
+}
+
+.kEfKay.kEfKay-sm .kp-content .search input[type=text],
+.kEfKay.kEfKay-xs .kp-content .search input[type=text] {
+  width: 100%;
+}
+
+@media screen and (max-width: 61.938em) {
+  /* width: 991px; */
+  .kEfKay .kp-content .search input[type=text] {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 48em) {
+  /* width 768px */
+  .kEfKay.kEfKay-md .kp-content .search input[type=text],
+  .kEfKay .kp-content .search input[type=text] {
+    width: 100%;
+  }
+}

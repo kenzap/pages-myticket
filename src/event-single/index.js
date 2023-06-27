@@ -230,7 +230,7 @@ class kWKE7y{
                               return `
 
                               <div class="box ${ box.type == 'hidden' ? 'dn':'' }">
-                                  <input type="radio" id="box${i}" data-box="${i}" data-price="${ box.price }" data-soldout="${ box.type == 'soldout' ? 'soldout' : (parseInt(box.stock) - parseInt(box.booked ? box.booked : 0)) == 0 ? 'soldout' : '' }" name="pack-group" ${ i == 0 ? 'checked' : '' } >
+                                  <input type="radio" id="box${i}" data-box="${i}" data-price="${ box.price }" data-soldout="${ box.type == 'soldout' ? 'soldout' : (parseInt(box.stock) - parseInt(box.booked ? box.booked : 0)) == 0 ? 'soldout' : '' }" name="pack-group" ${ i == 0 && box.type != 'hidden' && box.type != 'soldout' ? 'checked' : '' } >
                                   <label for="box${i}">
                                       <span class="price">${ priceFormat(event, box.price) }</span>
                                       <strong class="title">${ box.title }</strong>

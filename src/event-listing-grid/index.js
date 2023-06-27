@@ -1,6 +1,6 @@
 // dependencies
 import { __html, attr, parseApiError, onClick, H } from '@kenzap/k-cloud';
-import { getCookie, priceFormat, CDN } from "../_/_helpers.js"
+import { getCookie, priceFormat, eventPrice, CDN } from "../_/_helpers.js"
 
 class kibGiH {
 
@@ -21,7 +21,7 @@ class kibGiH {
 
         document.querySelector('#content').insertAdjacentHTML('beforeend', 
         `
-        <section id="${ attr(this.data.id) }" class="kibGiH ${ this.data.c.classes ? attr(this.data.c.classes) : '' }" style="${ this.data.c.section };${ this.data.borderstyle.value ? '--borderStyle:'+this.data.borderstyle.value+'px;' : '' }">
+        <section id="${ attr(this.data.id) }" class="kibGiH ${ this.data.imgstyle.value } ${ this.data.c.classes ? attr(this.data.c.classes) : '' }" style="${ this.data.c.section };${ this.data.borderstyle.value ? '--borderStyle:'+this.data.borderstyle.value+'px;' : '' };">
             <div class="container" style="${ this.data.c.container }">
   
             </div>
@@ -119,7 +119,7 @@ class kibGiH {
                                         <h3><a href="/event/?id=${event._id}">${ event.title }</a></h3>
                                         <strong class="sub-heading">${ event.vendor.name ? event.vendor.name : '' }</strong>
                                         <div class="card-footer">
-                                            <span class="price">${ this.price(event) }</span>
+                                            <span class="price">${ eventPrice(event) }</span>
                                             <div class="rating-area">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#6c757d" class="bi bi-calendar2-date ms-2 text-dark" viewBox="0 0 16 16">
                                                     <path d="M6.445 12.688V7.354h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z"></path>
@@ -150,10 +150,11 @@ class kibGiH {
     /**
      * Parse event img
      * @public
+     * @deprecated
      * @param {Object} event - event
      * @returns {Node} rendered HTML 
      */
-    img = (event) => {
+    img_legacy = (event) => {
 
         if(event.img[0]){
 
@@ -161,6 +162,23 @@ class kibGiH {
         }else{
 
             return `<img src="https://cdn.kenzap.com/loading.png" alt="Placeholder image"></img>`;
+        } 
+    }
+
+    /**
+     * Parse event img
+     * @public
+     * @param {Object} event - event
+     * @returns {Node} rendered HTML 
+     */
+    img = (event) => {
+
+        if(event.img[0]){
+
+            return `<div class="kp-img" style="background-image:url(${ CDN+'/S'+event.sid+'/event-'+event._id+'-1-500.webp?' + event.updated });"></div>`;
+        }else{
+
+            return `<div class="kp-img" style="background-image:url(https://cdn.kenzap.com/loading.png);"></div>`;
         } 
     }
 
@@ -195,26 +213,6 @@ class kibGiH {
     }
 
     /**
-     * Parse event price
-     * @public
-     * @param {Object} event
-     * @returns {Node} rendered HTML 
-     */
-    price = (event) => {
-
-        let price = 999999999999999;
-
-        event.variations.forEach((v, i) => {
-
-            if(parseFloat(v.price) < price) price = parseFloat(v.price);
-        });
-
-        if(price == 999999999999999) price = 0; 
-
-        return priceFormat(event.settings, price);
-    }
-
-    /**
      * @name getAPI
      * @description Returns API link
      * @param {object} headers
@@ -223,7 +221,6 @@ class kibGiH {
 
         return window.location.host.indexOf("localhost") == 0 ? "https://api.myticket-dev.app.kenzap.cloud/" : "https://api.myticket.app.kenzap.cloud/";
     }
-
 }
 
 window.kibGiH = kibGiH;
