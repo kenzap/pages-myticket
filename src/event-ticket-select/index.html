@@ -7,56 +7,55 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<link href="https://fonts.googleapis.com/css?family=Poppins:400,600|Roboto" rel="stylesheet">
-		<link href="../assets/css/global.css?t=1687883608425" rel="stylesheet">
-		<link href="styles.css?t=1687883608425" rel="stylesheet">
+		<link href="../assets/css/global.css?t=${timestamp}" rel="stylesheet">
+		<link href="styles.css?t=${timestamp}" rel="stylesheet">
 	</head>
 	<body>
 		<div id="content">
 
 
 		</div>
-		<script type="text/javascript" src="index.js?t=1687883608425"></script>
+		<script type="text/javascript" src="index.js?t=${timestamp}"></script>
 		<script>
 
 			document.addEventListener("DOMContentLoaded", () => {
 						
-				new kibGiH(
+				new kNMkI9(
 					{ 
 						"version": "1.0.0",
-						"title": "Event Listing",
-						"slug": "event-listing",
-						"description": "Ticket listing marketplace layout integrated with MyTicket Extension",
-						"preview": true,
-						"template": "universal",
-						"keywords": "events, marketplace, listing, myticket",
+						"title": "Event Ticket Select",
+						"slug": "event-ticket-select",
+						"description": "",
+						"preview": false,
+						"template": "myticket",
+						"keywords": "events, myticket, tickets, selection, cart, addition, checkout",
 						"sid" : 1002942,
 						"header": {
 							"input": "richtext",
 							"title": "Header",
-							"value": "<h2>Upcoming Events</h2>",
+							"value": "",
 							"hint": "Header title or description."
+						},
+						"url": {
+							"input": "text",
+							"title": "Event URL",
+							"value": "/event-single/",
+							"default": "",
+							"hint": "Link to event page with event add to cart functionality."
 						},
 						"borderstyle": {
 							"input": "range",
 							"title": "Border Style",
-							"value": "4",
+							"value": "10",
 							"default": "4",
 							"min": "0",
 							"max": "40",
 							"hint": "Specify border roundness in pixels"
 						},
-						"category": {
-							"input": "text",
-							"title": "Category (Optional)",
-							"value": "",
-							"default": "",
-							"hint": "Provide one category to filter listing results"
-						},
 						"csslibs": "",
 						"jslibs": "",
-						"keywords": "About Me",
 						"c": {
-							"section": "background-color:#f9f9f9;",
+							"section": "background-color:#ffffff;",
 							"container": "max-width:1168px;padding-left:16px;padding-right:16px;",
 							"classes": "pdm "
 						}

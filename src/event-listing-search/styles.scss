@@ -604,10 +604,10 @@
 	 padding:2px;
 	 -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
 	 -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
-	   transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
-	   -webkit-box-sizing:	content-box;
-	   -moz-box-sizing: content-box;
-	   box-sizing: content-box;
+	 transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+	 -webkit-box-sizing:	content-box;
+	 -moz-box-sizing: content-box;
+	 box-sizing: content-box;
  }
  
  .k0HRWO .search-filter .kenzap-checkbox input[type="checkbox"]{
