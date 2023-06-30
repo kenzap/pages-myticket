@@ -57,7 +57,7 @@ class kAesnY {
         `
             ${ this.data.header.value }
             <div class="kp-content">
-                <h2 class="title">${ this.data.title.value }</h2>
+                <h2 class="title">${ this.data.maintitle.value }</h2>
                 <p class="caption">${ this.data.subtitle.value }</p>
                 <div class="action">
                     <a target="_blank" href="${ this.data.link.value }" class="modal-link" rel="modal:open">

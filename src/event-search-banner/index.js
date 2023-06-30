@@ -53,7 +53,7 @@ class kEfKay {
         `
             ${ this.data.header.value }
             <div class="kp-content">
-                <h1 class="title">${ this.data.title.value }</h1>
+                <h1 class="title">${ this.data.maintitle.value }</h1>
                 <p class="caption">${ this.data.subtitle.value }</p>
                 <div class="search">
                     <input type="text" placeholder="${ this.data.searchtext.value }">
