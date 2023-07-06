@@ -71,7 +71,7 @@
   position: relative;
   width: 69%;
   margin: 0 auto;
-  z-index: 999;
+  z-index: 1;
   text-align: center;
 }
 

@@ -17,6 +17,8 @@ export class EventCheckout{
     
         // console.log(state.layout.data.posmode);
 
+        if(!this.state.parent.layout) this.state.parent.layout = { data: { posmode: 0 } };
+
         // init user authentication
         this.init();
     }
@@ -654,7 +656,7 @@ export class EventCheckout{
             </div>
             `;
 
-            console.log(self.state.parent.layout.data.posmode)
+            // console.log(self.state.parent.layout.data.posmode)
 
             d.addEventListener("scroll", function(e){ e.preventDefault(); return false; });
 

@@ -39,9 +39,8 @@ class kBC5GW {
         let self = this;
 
         if(this.month === undefined) this.month = "1";
-
-
-        console.log((self.month+"").length);
+ 
+        // console.log((self.month+"").length);
 
         // TODO do API query
         // fetch(getAPI(), {
