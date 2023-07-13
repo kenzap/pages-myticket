@@ -342,7 +342,7 @@ class k2ZAuN{
 				// map polygons accordingly
 				self.state.layout = new Layout(self.data, self.state);
 
-				// checkout
+				// checkout class
 				this.state.checkout = new EventCheckout(this.state, this.data.id, self.data.sid);
 			}
 			img.src = this.state.hall_js.img;

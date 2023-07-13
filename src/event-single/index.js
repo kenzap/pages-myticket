@@ -428,6 +428,10 @@ class kWKE7y{
       // prevents listeners to be assigned twice
       if(!self.state.firstLoad) return;
 
+      // pass posmode params
+      self.state.layout = { data: { posmode: this.data.posmode } };
+
+      // checkout class
       self.state.checkout = new EventCheckout(this.state, this.data.id, this.data.sid);
 
       // qty add
