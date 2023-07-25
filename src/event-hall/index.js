@@ -134,8 +134,6 @@ class k2ZAuN{
         .then(response => response.json())
         .then(response => {
 
-            console.log(response);
-
             if(response.success){
 
               if(this.state.debug) console.log(response);
@@ -297,7 +295,7 @@ class k2ZAuN{
 								<thead>
 										<tr>
 												<th>${ __html('Ticket') }</th>
-												<th></th>                                                   <!-- column hidden for mobile screens -->
+												<th>&nbsp;</th>                                                   <!-- column hidden for mobile screens -->
 												<th>${ __html('Price') }</th>                                                 <!-- column hidden for mobile screens -->
 												<th>&nbsp;</th>
 										</tr>

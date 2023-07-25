@@ -24,6 +24,7 @@
 						// "sid" : 1002942, // deetz
 						// "sid" : 1003165, // myticket
 						// "sid" : 1001819, // nsa
+						// "sid" : 1003341, // sundeck
 				new k2ZAuN(
 					{
 						"version": "1.0.0",
@@ -35,7 +36,7 @@
 						"keywords": "booking, seat map, charts, events, MyTicket, myticket, events, reservation, interactive venue map",
 						"csslibs": "",
 						"jslibs": "",
-						"sid" : 1001819,
+						"sid" : 1003376,
 						"id":"test",
 						"header": {
 							"input": "richtext",
@@ -100,11 +101,20 @@
 						"seatsize": {
 							"input": "range",
 							"title": "Seat Size",
-							"value": "40",
+							"value": "30",
 							"default": "40",
 							"min": "10",
 							"max": "100",
 							"hint": "Seat size in pixels"
+						},
+						"seatdensity": {
+							"input": "range",
+							"title": "Seat Density",
+							"value": "8",
+							"default": "4",
+							"min": "1",
+							"max": "20",
+							"hint": "The higher the number the closer the seats to each other."
 						},
 						"borderstyle": {
 							"input": "range",

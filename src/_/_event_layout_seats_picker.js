@@ -160,7 +160,7 @@ export class SeatsPicker{
 		this.state.pending_reservations = true;
 		
 		// scale polygon, seat space according to the seat size 
-		let scale = parseInt(this.state.seat_size)/2;
+		let scale = parseInt(this.state.seat_size)/parseInt(this.data.seatdensity.value);
 
 		// get central point 
 		let x = 0, y = 0, xc = 0, yc = 0, i = 0;

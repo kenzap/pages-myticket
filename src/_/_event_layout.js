@@ -103,9 +103,9 @@ export class Layout{
 					`<tr>
 						<td>
 							<div class="details">
+								${ item.zone_text ? '<div>' + __html(item.zone_text) + '</div>': '' }
 								${ item.seat_text ? '<div>' + __html('Seat %1$', item.seat_text) + '</div>': '' }
 								${ item.seat_row ? '<div>' + __html('Row %1$', item.seat_row) + '</div>': '' }
-								${ item.zone_text ? '<div>' + __html('Zone %1$', item.zone_text) + '</div>': '' }
 								${ item.cfs.map(c => {
 
 									return item[c.id] ? '<div>' + __html(c.label+' %1$', item[c.id]) + '</div>' : ''
@@ -145,19 +145,19 @@ export class Layout{
 					if(!hall.areas[item.zone_id]) return;
 
 					if(!hall.areas[item.zone_id].seats) hall.areas[item.zone_id].seats = { title: __html('Zone %1$', item.zone_id), tws: 0, tns: 1, price: this.state.price };
-
+					
 					// structure summary table
 					summary_table_row = 
 					`<tr>
 						<td>
 							<div class="details">
+								${ item.title ? '<div>' + __html(item.title) + '</div>': '' }
 								${ item.cfs.map(c => {
 
 									return '<div>' + __html(c.label+' %1$', item[c.id]) + '</div>'
 
 									}).join('')
 								}
-								${ item.cfs.length == 0 ? '<div>' + __html('Zone %1$',item.zone_id) + '</div>': '' }
 							</div>
 						</td>
 						<td></td>                                                                                  

@@ -1218,11 +1218,20 @@ export class EventCheckout{
 
     getCheckoutField = (self, group, field) => {
 
+        // set defaults
+        if(!self.state.data.event.settings.checkout_fields){
+            
+            if(group == 'holder' && field == 'full_name'){ return { val: '2' }; } // full_name default required
+            if(group == 'holder' && field == 'email'){ return { val: '2' }; } // email default required
+
+            return { val: '0' }; // other fields default hidden
+        }
+
         let res = self.state.data.event.settings.checkout_fields[group].filter(obj => obj.field == field);
         if(res) return res[0];
 
         return {val: '0'};
-    } 
+    }
 
     /**
      * @name getAPI
