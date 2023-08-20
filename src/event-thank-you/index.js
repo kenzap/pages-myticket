@@ -108,6 +108,8 @@ class kZtMlO{
         });
     }
 
+    // https://api.myticket-dev.app.kenzap.cloud/?cmd=view_ticket&ext_token=1003165&trans_id=8ec6de0380335becda592ed6c1884e4390a77e39
+
     // assign class html
     render = () => {
 
@@ -125,25 +127,44 @@ class kZtMlO{
                             <div class="section-download-ticket" >
                                 <div class="kenzap-container" style="max-width:1170px">
                                     <noscript><img src="https://static.kenzap.com/layouts/event/download-ticket-img.png" alt="Download image"></noscript><img class=" lazyloaded" src="https://static.kenzap.com/layouts/event/download-ticket-img.png" data-src="https://static.kenzap.com/layouts/event/download-ticket-img.png" alt="Download image">
-                                    <p>${ __html('Thanks for purchasing "%1$%2$%3$" ticket.', '<strong>', __html(this.state.response.order.title), '</strong>') }</p><p>${ __html('You can directly download ticket by clicking %1$Download%2$ button below.', '<strong>', '</strong>') }</p>
-                                    <a target="_blank" class="primary-link download-ticket" href="#">Download Your Ticket</a>
+                                    <p>${ __html('Thank you for purchasing "%1$%2$%3$" ticket.', '<strong>', __html(this.state.response.order.title), '</strong>') }</p>
+                                    ${
+                                        this.data.general_ticket.value == "1" 
+                                        ?
+                                        `
+                                        <p>${ __html('You can download all tickets by clicking %1$Download%2$ button below.', '<strong>', '</strong>') }</p>
+                                        <a target="_blank" class="primary-link download-ticket" href="${ attr(this.getAPI() + `?cmd=view_ticket&ext_token=${ attr(this.data.sid) }&trans_id=${ attr(getParam('id')) }`) }">${  __html('Download Your Ticket') }</a>
+                                        `
+                                        :
+                                        `
+                                        `
+                                    }
                                 </div>
                             </div>
                         </div>
-                        <div class="row">   
-                            <div class="section-download-ticket-multi">
-                                <h4>${ __html('Or download each ticket individually') }</h4>
-                                ${ 
-                                    this.state.response.order.checkout.holders.map((holder, i) => {
-                                        
-                                        return `
-                                        <a target="_blank" href="#" data-index="${i}" class="download-ticket">${ __html('Download ticket #%1$', (i+1)) }</a>
-                                        `
+                        ${
+                            this.data.individual_ticket.value == "1" 
+                            ?
+                            `
+                            <div class="row">   
+                                <div class="section-download-ticket-multi">
+                                    <h4>${ __html('Download each ticket individually') }</h4>
+                                    ${ 
+                                        this.state.response.order.checkout.holders.map((holder, i) => {
+                                            
+                                            return `
+                                            <a target="_blank" href="${ attr(this.getAPI() + `?cmd=view_ticket&ext_token=${ attr(this.data.sid) }&trans_id=${ attr(getParam('id')) }&holder=${ attr(i) }`) }" data-index="${ attr(i) }" class="download-ticket">${ __html('Download ticket #%1$', (i+1)) }</a>
+                                            `
 
-                                    }).join()
-                                }
+                                        }).join()
+                                    }
+                                </div>
                             </div>
-                        </div>
+                            `
+                            :
+                            `
+                            `
+                        }
                     </div>
                 </main>
             </div>`;
@@ -159,8 +180,8 @@ class kZtMlO{
         // prevents listeners to be assigned twice
         if(!self.state.firstLoad) return;
 
-        // add ticket download listener
-        onClick('.download-ticket', self.viewTicket);
+        // add ticket download listener via blob url
+        // onClick('.download-ticket', self.viewTicket);
     }
 
     viewTicket = (e) => {
@@ -194,7 +215,7 @@ class kZtMlO{
             body: JSON.stringify({
                 query: query
             })
-        })     
+        })
         .then(response => response.blob())
         .then(data => {
             
@@ -216,7 +237,12 @@ class kZtMlO{
             }else{
     
                 let url = URL.createObjectURL(data);
-                window.open(url);
+
+                window.open(url, '_blank');
+
+                // document.querySelector('.test-download').setAttribute('src', url);
+
+                // window.open(url);
             }
         })
         .catch(error => { 

@@ -367,8 +367,10 @@ export const priceFormat = (_this, price) => {
     if(_this.currency_symb_loc){ settings = _this; }else{ settings = _this.settings; }
 
     switch(settings.currency_symb_loc){
-        case 'left': price = settings.currency_symb + ' ' + price; break;
+        case 'left': price = settings.currency_symb + '' + price; break;
         case 'right': price = price + settings.currency_symb; break;
+        case 'left_space': price = settings.currency_symb + ' ' + price; break;
+        case 'right_space': price = price + ' ' + settings.currency_symb; break;
     }
 
     return price;
