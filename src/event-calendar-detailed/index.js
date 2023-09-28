@@ -284,7 +284,7 @@ class kXzAIG {
         }
 
         // top date calendar click
-        [...document.querySelectorAll('.event-tabs li a')].forEach(el => {
+        if(self.firstLoad) [...document.querySelectorAll('.event-tabs li a')].forEach(el => {
 
             el.addEventListener("click", e => {
 
@@ -303,24 +303,8 @@ class kXzAIG {
             });
         });
 
-        // left tab clicked
-        [...document.querySelectorAll('.schedule-tabs li')].forEach(el => {
-
-            el.addEventListener("click", e => {
-
-                e.preventDefault();
-
-                hideAll();
-
-                e.currentTarget.classList.add('active');
-
-                self._id = e.currentTarget.dataset._id;
-
-                self.render();
-            });
-        });
-
-        new Glide('.glide', {
+        // date calendar slider
+        if(self.firstLoad) new Glide('.glide', {
             type: 'slider',
             focusAt: '1',
             perView: 6,
@@ -342,7 +326,24 @@ class kXzAIG {
                     perView: 1
                 }
             }
-        }).mount()
+        }).mount();
+
+        // left tab clicked
+        [...document.querySelectorAll('.schedule-tabs li')].forEach(el => {
+
+            el.addEventListener("click", e => {
+
+                e.preventDefault();
+
+                hideAll();
+
+                e.currentTarget.classList.add('active');
+
+                self._id = e.currentTarget.dataset._id;
+
+                self.render();
+            });
+        });
     }
 
     /**
