@@ -1077,12 +1077,12 @@ export class EventCheckout{
             });
 
             amount *= 100;
+            amount = amount / self.state.parent.tickets.length;
             variation = 0;
         }else{
 
             // console.log(self.state.data);
             title = self.state.data.event.title + " - " + document.querySelector('input[name="pack-group"]:checked').parentNode.querySelector(".title").innerHTML;
-
             amount = parseInt(parseFloat(document.querySelector('input[name="pack-group"]:checked').dataset.price) * 100);
             variation = document.querySelector('input[name="pack-group"]:checked').dataset.box;
         }

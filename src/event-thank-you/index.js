@@ -1,7 +1,6 @@
 // dependencies
 import { showLoader, hideLoader, attr, __html, parseApiError, slugify, onClick, H } from '@kenzap/k-cloud';
 import { getCookie, getParam } from "../_/_helpers.js"
-// import { HTMLContent } from "../_/_cnt_success.js"
 
 class kZtMlO{
 

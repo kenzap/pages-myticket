@@ -146,8 +146,8 @@ class kWKE7y{
 
                           return (img == true ?
                           `
-                              <li data-thumb="${ CDN+'/S'+event.sid+'/event-'+event._id+'-'+(parseInt(i)+1)+'-250.webp?' + event.updated }">
-                                  <img src="${ CDN+'/S'+event.sid+'/event-'+event._id+'-'+(parseInt(i)+1)+'-500.webp?' + event.updated }" alt="" width="550" height="auto" />
+                              <li data-thumb="${ CDN() +'/S'+event.sid+'/event-'+event._id+'-'+(parseInt(i)+1)+'-250.webp?' + event.updated }">
+                                  <img src="${ CDN() +'/S'+event.sid+'/event-'+event._id+'-'+(parseInt(i)+1)+'-500.webp?' + event.updated }" alt="" width="550" height="auto" />
                               </li>    
                           ` : ``)                 
 
@@ -365,9 +365,9 @@ class kWKE7y{
       // load vendor image
       let i = new Image();
       i.onload = () => {
-          document.querySelector('.object-img img').setAttribute('src', CDN+'/S'+event.sid+'/event-'+event._id+'-vendor-logo-100x100.webp?' + event.updated);
+          document.querySelector('.object-img img').setAttribute('src', CDN() +'/S'+event.sid+'/event-'+event._id+'-vendor-logo-100x100.webp?' + event.updated);
       };
-      i.src = CDN+'/S'+event.sid+'/event-'+event._id+'-vendor-logo-100x100.webp?' + event.updated;
+      i.src = CDN() +'/S'+event.sid+'/event-'+event._id+'-vendor-logo-100x100.webp?' + event.updated;
 
       // Instantiate EasyZoom instances
       var $easyzoom = $('.easyzoom').easyZoom();

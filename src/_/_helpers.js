@@ -1,4 +1,17 @@
-export const CDN = 'https://kenzap-sites.oss-ap-southeast-1.aliyuncs.com';
+// export const CDN = 'https://kenzap-sites.oss-ap-southeast-1.aliyuncs.com';
+
+/**
+ * @name CDN
+ * @description Fast CDN, points to
+ * @param {String} type
+ * @param {String} CDN link
+ */
+export const CDN = (type) => {
+
+    if(type == "source") return 'https://kenzap-sites.oss-ap-southeast-1.aliyuncs.com';
+
+    return 'https://cdn.kenzap.cloud';
+}
 
 /**
  * @name onlyNumbers

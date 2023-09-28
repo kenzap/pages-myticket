@@ -172,7 +172,7 @@ class kBC5GW {
                         <div class="event-box">
                             <div class="event-date">
                                 <div class="post-date">
-                                    <span class="day">${ new Date(event.eventbegins).getDay() }</span>
+                                    <span class="day">${ new Date(event.eventbegins).getDay()+1 }</span>
                                     <span class="month">${ (months[new Date(event.eventbegins).getMonth()]).substr(0, 3) }</span>
                                     <span class="year">${ new Date(event.eventbegins).getFullYear() }</span>
                                 </div>
@@ -245,7 +245,7 @@ class kBC5GW {
 
         if(event.img[0]){
 
-            return `<img src="${ CDN+'/S'+event.sid+'/event-'+event._id+'-1-250.webp?' + event.updated } }" alt="${ attr(event.title) }"></img>`;
+            return `<img src="${ CDN()+'/S'+event.sid+'/event-'+event._id+'-1-250.webp?' + event.updated } }" alt="${ attr(event.title) }"></img>`;
         }else{
 
             return `<img src="https://cdn.kenzap.com/loading.png" alt="Placeholder image"></img>`;

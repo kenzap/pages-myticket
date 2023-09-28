@@ -230,20 +230,6 @@ class kle3pt {
                 self.render();
             });
         });
-
-        // new Glide('.glide', {
-        //     type: 'slider',
-        //     perView: 6,
-        //     focusAt: 'left',
-        //     breakpoints: {
-        //       800: {
-        //         perView: 3
-        //       },
-        //       480: {
-        //         perView: 1
-        //       }
-        //     }
-        // }).mount()
     }
 
     /**
@@ -256,7 +242,7 @@ class kle3pt {
 
         if(event.img[0]){
 
-            return `<div class="kp-img" style="background-image:url(${ CDN+'/S'+event.sid+'/event-'+event._id+'-1-500.webp?' + event.updated });"></div>`;
+            return `<div class="kp-img" style="background-image:url(${ CDN()+'/S'+event.sid+'/event-'+event._id+'-1-500.webp?' + event.updated });"></div>`;
         }else{
 
             return `<div class="kp-img" style="background-image:url(https://cdn.kenzap.com/loading.png);"></div>`;

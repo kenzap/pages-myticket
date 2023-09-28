@@ -14,6 +14,9 @@ class kXzAIG {
         // cache data
         this.data = data;
 
+        // first load trigger
+        this.firstLoad = true;
+
         // init container
         this.html();
 
@@ -143,23 +146,22 @@ class kXzAIG {
             }
         });
 
-        document.querySelector('#'+this.data.id+' .container').innerHTML = 
+        if(self.firstLoad) document.querySelector('#'+this.data.id+' .container').innerHTML = 
         `
             ${ this.data.header.value }
             <div class="schedule-content">
-
-                <div class="glide"> 
-                    <div class="glide__track" data-glide-el="track">
-                        <ul class="event-tabs owl-carousel lg-carousel glide__slides" >
+                <div class="glide multi"> 
+                    <div class="slider__track glide__track" data-glide-el="track">
+                        <ul class="event-tabs glide__slides" >
                             ${ 
                                 datesFiltered.map((da, i) => {
 
                                     return dates[da].map((date, j) => {
 
-                                        console.log(self.date)
+                                        // console.log(self.date)
 
                                         return `
-                                            <li class="${ self.date == da || (self.date == "" && i == 0 && j == 0) ? 'active' : '' }">
+                                            <li class="glide__slide ${ self.date == da || (self.date == "" && i == 0 && j == 0) ? 'active' : '' }">
                                                 <a href="#tab-${ da }"><b>${ new Date(date).toLocaleString('en-us', {  weekday: 'long' })} </b> ${ new Date(date).getDate() } <span>${ months[new Date(date).getMonth()].substr(0, 3) } ${ new Date(date).getFullYear() }</span></a>
                                             </li>
                                         `
@@ -169,84 +171,86 @@ class kXzAIG {
                             }
                         </ul>
                     </div>
-                    <div class="glide__arrows" data-glide-el="controls" style="display:none">
+                    <div class="glide__arrows" data-glide-el="controls" style="display:none;">
                         <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
                         <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
                     </div> 
                 </div>
                 <div class="event-tab-content">
 
-                ${ 
-                    Object.keys(dates).map((da, i) => {
-
-                    return `
-                    <div class="tab-pane ${ self.date == da || (self.date == "" && i == 0) ? 'active' : '' }" id="tab-${self.date}">
-                        <div class="kenzap-row">
-                            <div class="kenzap-col-3">
-                                <ul class="schedule-tabs">
-                                    ${ 
-                                        dates[da].map((date, j) => { 
-
-                                            return this.response.events.data.map((event, j) => {
-
-                                                // console.log((new Date(date).getFullYear() + '-' + new Date(date).getMonth() + '-' + new Date(event.eventbegins).getDate()) + " " + (new Date(event.eventbegins).getFullYear() + '-' + new Date(event.eventbegins).getMonth() + '-' + new Date(date).getDate()));
-
-                                                return (new Date(date).getFullYear() + '-' + new Date(date).getMonth() + '-' + new Date(date).getDate()) == (new Date(event.eventbegins).getFullYear() + '-' + new Date(event.eventbegins).getMonth() + '-' + new Date(event.eventbegins).getDate()) ? `
-                                                <li class="${ j>-1 ? 'active': '' }" data-_id="${ event._id }">
-                                                    <a href="#tab1-hr1">
-                                                        <span class="schedule-time">${ new Date(event.eventbegins).toLocaleTimeString([],  { hour: "2-digit", minute: "2-digit" }).substr(0,5) } <strong>${ new Date(event.eventbegins).toLocaleTimeString([],  { hour: "2-digit", minute: "2-digit" }).length == 8 ? new Date(event.eventbegins).toLocaleTimeString([],  { hour: "2-digit", minute: "2-digit" }).substr(6, 2) : "" }</strong></span>
-                                                        <span class="schedule-title"><b>${ event.title }</b></span>
-                                                        <span class="schedule-ticket-info"><b>${ self.ticketsLeft(event) }</b></span>
-                                                    </a>
-                                                </li>
-                                                `
-                                                :
-                                                ''
-
-                                            }).join('')
-
-                                        }).join('')
-                                    }
-                                </ul>
-                            </div>
-                            <div class="kenzap-col-9">
-                                <div class="schedule-tab-content">
-
-                                    ${
-                                        this.response.events.data.map((event, i) => {
-                
-                                        return (event._id == self._id || (self._id == "" && i == 0)) ?
-                                        `
-                                            <div class="tab-pane active" id="tab1-${event._id}">
-                                                ${ this.img(event) }
-                                                <div class="full-event-info">
-                                                    <div class="full-event-info-header">
-                                                        <h2>${ event.title }</h2>
-                                                        <span class="ticket-left-info"><b>${ self.ticketsLeft(event) }</b></span>
-                                                        <div class="clearfix"></div>
-                                                        <span class="event-date-info">${ new Date(event.eventbegins).toLocaleDateString() } ${ (new Date(event.eventbegins).toLocaleTimeString()).substr(0,5) }</span>
-                                                        <span class="event-venue-info">${ event.eventlocation }</span>
-                                                    </div>
-                                                    <div class="full-event-info-content">
-                                                        <p>${ event.sdesc }</p>
-                                                        <a class="book-ticket" href="${ eventLink(event) }">${ html(this.data.ctatext.value) }</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        `
-                                        :
-                                        ``
-                                        }).join('')
-                                    }
-
-                                </div>
-                            </div>	
-                        </div>
-                    </div>`
-                    }).join('')
-                }
                 </div>
             </div>
+        `;
+
+        document.querySelector('#'+this.data.id+' .container .event-tab-content').innerHTML = 
+        `
+        ${
+            Object.keys(dates).map((da, i) => {
+
+            return `
+            <div class="tab-pane ${ self.date == da || (self.date == "" && i == 0) ? 'active' : '' }" id="tab-${self.date}">
+                <div class="kenzap-row">
+                    <div class="kenzap-col-3">
+                        <ul class="schedule-tabs">
+                            ${ 
+                                dates[da].map((date, j) => { 
+
+                                    return this.response.events.data.map((event, j) => {
+
+                                        return (new Date(date).getFullYear() + '-' + new Date(date).getMonth() + '-' + new Date(date).getDate()) == (new Date(event.eventbegins).getFullYear() + '-' + new Date(event.eventbegins).getMonth() + '-' + new Date(event.eventbegins).getDate()) ? `
+                                        <li class="${ j>-1 ? 'active': '' }" data-_id="${ event._id }">
+                                            <a href="#tab1-hr1">
+                                                <span class="schedule-time">${ new Date(event.eventbegins).toLocaleTimeString([],  { hour: "2-digit", minute: "2-digit" }).substr(0,5) } <strong>${ new Date(event.eventbegins).toLocaleTimeString([],  { hour: "2-digit", minute: "2-digit" }).length == 8 ? new Date(event.eventbegins).toLocaleTimeString([],  { hour: "2-digit", minute: "2-digit" }).substr(6, 2) : "" }</strong></span>
+                                                <span class="schedule-title"><b>${ event.title }</b></span>
+                                                <span class="schedule-ticket-info"><b>${ self.ticketsLeft(event) }</b></span>
+                                            </a>
+                                        </li>
+                                        `
+                                        :
+                                        ''
+
+                                    }).join('')
+
+                                }).join('')
+                            }
+                        </ul>
+                    </div>
+                    <div class="kenzap-col-9">
+                        <div class="schedule-tab-content">
+
+                            ${
+                                this.response.events.data.map((event, i) => {
+        
+                                return (event._id == self._id || (self._id == "" && i == 0)) ?
+                                `
+                                    <div class="tab-pane active" id="tab1-${event._id}">
+                                        ${ this.img(event) }
+                                        <div class="full-event-info">
+                                            <div class="full-event-info-header">
+                                                <h2>${ event.title }</h2>
+                                                <span class="ticket-left-info"><b>${ self.ticketsLeft(event) }</b></span>
+                                                <div class="clearfix"></div>
+                                                <span class="event-date-info">${ new Date(event.eventbegins).toLocaleDateString() } ${ (new Date(event.eventbegins).toLocaleTimeString()).substr(0,5) }</span>
+                                                <span class="event-venue-info">${ event.eventlocation }</span>
+                                            </div>
+                                            <div class="full-event-info-content">
+                                                <p>${ event.sdesc }</p>
+                                                <a class="book-ticket" href="${ eventLink(event) }">${ html(this.data.ctatext.value) }</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `
+                                :
+                                ``
+                                }).join('')
+                            }
+
+                        </div>
+                    </div>	
+                </div>
+            </div>`
+            }).join('')
+        }
         `;
 
         if(!this.response.events.data.length) if(document.querySelector('#'+this.data.id+' .container .kp-content')) document.querySelector('#'+this.data.id+' .container .kp-content').innerHTML = 
@@ -318,15 +322,25 @@ class kXzAIG {
 
         new Glide('.glide', {
             type: 'slider',
+            focusAt: '1',
             perView: 6,
-            focusAt: 'left',
+            startAt: 1,
             breakpoints: {
-              800: {
-                perView: 3
-              },
-              480: {
-                perView: 1
-              }
+                1100: {
+                    perView: 5
+                },
+                860: {
+                    perView: 4
+                },
+                680: {
+                    perView: 3
+                },
+                560: {
+                    perView: 2
+                },
+                400: {
+                    perView: 1
+                }
             }
         }).mount()
     }
@@ -341,7 +355,7 @@ class kXzAIG {
 
         if(event.img[0]){
 
-            return `<div class="kp-img" style="background-image:url(${ CDN+'/S'+event.sid+'/event-'+event._id+'-1-500.webp?' + event.updated });"></div>`;
+            return `<div class="kp-img" style="background-image:url(${ CDN()+'/S'+event.sid+'/event-'+event._id+'-1-500.webp?' + event.updated });"></div>`;
         }else{
 
             return `<div class="kp-img" style="background-image:url(https://cdn.kenzap.com/loading.png);"></div>`;

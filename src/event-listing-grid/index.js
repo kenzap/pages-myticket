@@ -158,7 +158,7 @@ class kibGiH {
 
         if(event.img[0]){
 
-            return `<img src="${ CDN+'/S'+event.sid+'/event-'+event._id+'-1-250.webp?' + event.updated } }" alt="${ attr(event.title) }"></img>`;
+            return `<img src="${ CDN()+'/S'+event.sid+'/event-'+event._id+'-1-250.webp?' + event.updated } }" alt="${ attr(event.title) }"></img>`;
         }else{
 
             return `<img src="https://cdn.kenzap.com/loading.png" alt="Placeholder image"></img>`;
@@ -175,7 +175,7 @@ class kibGiH {
 
         if(event.img[0]){
 
-            return `<div class="kp-img" style="background-image:url(${ CDN+'/S'+event.sid+'/event-'+event._id+'-1-500.webp?' + event.updated });"></div>`;
+            return `<div class="kp-img" style="background-image:url(${ CDN()+'/S'+event.sid+'/event-'+event._id+'-1-500.webp?' + event.updated });"></div>`;
         }else{
 
             return `<div class="kp-img" style="background-image:url(https://cdn.kenzap.com/loading.png);"></div>`;

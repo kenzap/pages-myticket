@@ -1,6 +1,6 @@
 // dependencies
-import { __attr, __html, attr, html, slugify, parseApiError, spaceID, onChange } from '@kenzap/k-cloud';
-import { loadDependencies, getCookie, setCookie, getParam, priceFormat, makeid, hexToRGB, CDN } from '../_/_helpers.js';
+import { CDN, __attr, __html, attr, html, slugify, parseApiError, spaceID, onChange } from '@kenzap/k-cloud';
+import { loadDependencies, getCookie, setCookie, getParam, priceFormat, makeid, hexToRGB } from '../_/_helpers.js';
 import { EventCheckout } from "../_/_event_checkout.js"
 import { Layout } from "../_/_event_layout.js"
 
@@ -188,7 +188,7 @@ class k2ZAuN{
 
       if(layout == ""){ document.querySelector('#' + this.data.id + ' .container').innerHTML = __html('Please link your layout with the event to load this page. %1$Learn more%2$.','<a target="_blank" href="https://kenzap.com/post/create-seating-chart-for-a-stadium-with-seat-numbers-and-sell-tickets-kenzap-myticket-197659#link-layout">', '</a>'); return; }
 
-      fetch(CDN + '/S'+self.data.sid+'/layout-'+layout+'.json?' + (new Date().getTime()))
+      fetch(CDN() + '/S'+self.data.sid+'/layout-'+layout+'.json?' + (new Date().getTime()))
       .then(res => res.blob())
       .then(file => file.text())
       .then(text => {
@@ -449,37 +449,6 @@ class k2ZAuN{
       }
     }
 
-    // refreshPrice = (t) => {
-
-    //   let d = document;
-    //   let pb = d.querySelector('input[name="pack-group"]:checked');
-    //   if(!pb) return;
-
-    //   let qty = parseInt(d.querySelector(".num").value);
-    //   let price = pb.dataset.price*qty;
-    //   let btn = d.querySelector(".btn-checkout");
-    //   btn.setAttribute('data-price', price);
-    //   btn.innerHTML = btn.getAttribute('data-cont') + ' <span>(' + priceFormat(this.state.response.event, price) + ')</span>';
-    //   // btn.dataset.link = "https://pay.kenzap.com/B"+oid+"P"+pb.dataset.box+"P"+qty+"/";
-
-    //   // package variation
-    //   switch(t){
-    //       // normal package
-    //       case true: 
-
-    //           d.querySelector(".qty-area").style.display = "block";
-    //       break;
-    //       // custom package
-    //       case false: 
-
-    //           d.querySelector(".qty-area").style.display = "none";
-    //           return;
-    //       break;
-    //   }
-
-    //   // refreshOfferUrl();
-    // }
-
     doCheckout = (e) => {
 
       e.preventDefault();
@@ -494,15 +463,6 @@ class k2ZAuN{
     dependencies = () => {
 
         let self = this;
-
-    //     // can not start rendering without jquery
-    //     loadDependencies('https://static.kenzap.com/libs/jquery-1.11.0.min.js', () => {
-  
-    //         self.cb;
-    //         // loadDependencies('https://static.kenzap.com/libs/lightslider-1.1.5.css', self.cb);
-    //         // loadDependencies('https://static.kenzap.com/libs/lightslider-1.1.5.js', self.cb);
-    //         // loadDependencies('https://static.kenzap.com/libs/easyzoom-2.4.0.js', self.cb);
-    //     });
     }
 
     /**

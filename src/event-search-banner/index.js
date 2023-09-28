@@ -89,7 +89,7 @@ class kEfKay {
 
         if(event.img[0]){
 
-            return `<img src="${ CDN+'/S'+event.sid+'/event-'+event._id+'-1-250.webp?' + event.updated } }" alt="${ attr(event.title) }"></img>`;
+            return `<img src="${ CDN()+'/S'+event.sid+'/event-'+event._id+'-1-250.webp?' + event.updated } }" alt="${ attr(event.title) }"></img>`;
         }else{
 
             return `<img src="https://cdn.kenzap.com/loading.png" alt="Placeholder image"></img>`;
