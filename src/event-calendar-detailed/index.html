@@ -53,21 +53,42 @@
 							"default": "",
 							"hint": "Provide one category to filter listing results"
 						},
+						"eventfilter": {
+							"input": "radio",
+							"title": "Event Filter",
+							"options": [
+								{
+									"key": "",
+									"value": "All"
+								},
+								{
+									"key": "upcoming",
+									"value": "Upcoming"
+								},
+								{
+									"key": "past",
+									"value": "Past"
+								}
+							],
+							"value": "",
+							"default": "",
+							"hint": "Filter events before or after today automatically."
+						},
 						"imgstyle": {
 							"input": "radio",
 							"title": "Image Style",
 							"options": [
 								{
-								"key": "kp-square",
-								"value": "Square"
+									"key": "kp-square",
+									"value": "Square"
 								},
 								{
-								"key": "kp-vertical",
-								"value": "Portrait"
+									"key": "kp-vertical",
+									"value": "Portrait"
 								},
 								{
-								"key": "kp-horizontal",
-								"value": "Landscape"
+									"key": "kp-horizontal",
+									"value": "Landscape"
 								}
 							],
 							"value": "kp-horizontal",

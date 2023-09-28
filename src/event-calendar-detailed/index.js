@@ -109,6 +109,10 @@ class kXzAIG {
 
         const months = [__html('January'), __html('February'), __html('March'), __html('April'), __html('May'), __html('June'), __html('July'), __html('August'), __html('September'), __html('October'), __html('November'), __html('December')];
 
+        // today
+        let today = new Date();
+        let today_date = today.getFullYear() + "-" + today.getMonth() + "-" + today.getDate();
+
         // find years and months
         let dates = {};
         if(this.response.events.dates) this.response.events.dates.forEach(date => {
@@ -120,7 +124,17 @@ class kXzAIG {
             dates[k].sort();
         })
 
-        if(self.date == "") self.date = Object.keys(dates)[0];
+        // sorted list of dates 
+        let datesFiltered = Object.keys(dates).sort();
+
+        // filter by upcoming
+        if(this.data.eventfilter.value == "upcoming") datesFiltered = datesFiltered.filter(v => v >= today_date);
+
+        // filter by past
+        if(this.data.eventfilter.value == "past") datesFiltered = datesFiltered.filter(v => v <= today_date);
+
+        // filter by a particular date, ex., when user clicks on tab
+        if(self.date == "") self.date = datesFiltered.sort()[0];
 
         if(self._id == "") this.response.events.data.map((event, j) => {
 
@@ -138,9 +152,11 @@ class kXzAIG {
                     <div class="glide__track" data-glide-el="track">
                         <ul class="event-tabs owl-carousel lg-carousel glide__slides" >
                             ${ 
-                                Object.keys(dates).sort().map((da, i) => {
+                                datesFiltered.map((da, i) => {
 
                                     return dates[da].map((date, j) => {
+
+                                        console.log(self.date)
 
                                         return `
                                             <li class="${ self.date == da || (self.date == "" && i == 0 && j == 0) ? 'active' : '' }">
@@ -341,6 +357,13 @@ class kXzAIG {
      */
     ticketsLeft = (event) => {
 
+        // no packages defined
+        if(typeof(event.variations[0]) === 'undefined') return __html("no available tickets");
+
+        // it is ver hard to calculate number of tickets left for hall layout
+        if(typeof(event.variations[0]) !== 'undefined') if(event.variations[0].layout == "true") return __html("view tickets");
+
+        // get remaining amount of tickets left
         let total = 0;
         event.variations.forEach(v => {
 

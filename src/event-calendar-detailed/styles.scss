@@ -379,10 +379,10 @@
 }
 
 .kXzAIG .schedule-content .event-tab-content .tab-pane .schedule-tabs .schedule-time{
-	display:block;
-	font-size:1.4rem;
-	color:var(--txtColorA);
-	margin:0 0 0.4rem;
+	display: block;
+	font-size: 1.4rem;
+	color: var(--txtColorA);
+	margin: 0 0 0.4rem;
 }
 
 .kXzAIG .schedule-content .event-tab-content .tab-pane .schedule-tabs .schedule-time strong{
@@ -409,7 +409,6 @@
 
 .kXzAIG .schedule-content .event-tab-content .tab-pane .tab-content{
 	border-left:1px solid var(--grayColorA);
-	// margin:-6px 0 0;
 }
 
 .kXzAIG .schedule-content .event-tab-contentt .tab-content .tab-pane > img{
@@ -417,7 +416,7 @@
 }
 
 .kXzAIG .schedule-content .event-tab-content .tab-pane .full-event-info{
-	padding:45px;
+	padding:32px;
 	overflow:hidden;
 }
 
@@ -611,9 +610,9 @@
 @media only screen and (min-width: 62px) and (max-width: 75em) {
 	/* 992px and 1200px */
 	
-	.kXzAIG .schedule-content{
-		padding:70px 30px
-	}
+	// .kXzAIG .schedule-content{
+	// 	padding: 70px 30px
+	// }
 	
 	.kXzAIG .schedule-content .event-tab-content .tab-pane .schedule-tabs a{
 		padding:30px 50px;
@@ -716,6 +715,10 @@
 		-webkit-align-items:flex-start;
 		flex-direction:column;
 		-webkit-flex-direction:column;
+	}
+
+	.kXzAIG .schedule-content .event-tab-content .tab-pane .full-event-info{
+		padding: 16px 0;
 	}
 	
 	.kXzAIG .schedule-content .event-tab-content .tab-pane .full-event-info .ticket-left-info{

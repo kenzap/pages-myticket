@@ -1,6 +1,12 @@
 export const CDN = 'https://kenzap-sites.oss-ap-southeast-1.aliyuncs.com';
 
-// numbers only with allowed exceptions
+/**
+ * @name onlyNumbers
+ * @description Return numbers only from the string
+ * @param {String} sel - DOM selector.
+ * @param {String} chars - Characters to exclude from cleaning.
+ * @param {String} formatted string
+ */
 export const onlyNumbers = (sel, chars) => {
 
     if(!document.querySelector(sel)) return;
@@ -20,20 +26,8 @@ export const onlyNumbers = (sel, chars) => {
                 window[key] = true;
             }
         
-            // console.log(key.length + " / " + isNumber + " / " + e.which);
-
-            // not alphanumeric
-            // if (key.length != 1) {
-
-            //     e.preventDefault(); 
-            //     return false;
-            // }
-        
             // const isLetter = (key >= 'a' && key <= 'z');
             const isNumber = (key >= '0' && key <= '9');
-
-            // add exception when Control or Meta (MAC) keys pressed
-            // console.log(window['meta'] + " " + window['control']);
 
             // allow x c v a characters when meta ot control is pressed
             if((window['control'] || window['meta']) && [86, 88, 65, 67, 90].includes(e.which)){ console.log("pushing"); return true; }
@@ -107,12 +101,18 @@ export const getCookie = (cname) => {
  * 
  * @returns {string} id - Kenzap Cloud space ID.
  */
- export const getParam = (p) => {
+export const getParam = (p) => {
     
     let urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(p) ? urlParams.get(p) : "";
 }
 
+/**
+ * @name formatTime
+ * @description Format time
+ * 
+ * @returns {String} timestamp
+ */
 export const formatTime = (timestamp) => {
 	
     let a = new Date(timestamp * 1000);
@@ -135,7 +135,9 @@ export const formatTime = (timestamp) => {
  * @returns {Node} rendered HTML 
  */
 export const eventLink = (event) => {
- 
+
+    if(typeof(event.variations[0]) === 'undefined') return `/event/?id=${event._id}`;
+
     return (event.variations[0].layout == "true") ? `/hall/?id=${event._id}` : `/event/?id=${event._id}`;
 }
 
@@ -159,6 +161,14 @@ export const eventPrice = (event) => {
     return priceFormat(event.settings, price);
 }
 
+/**
+ * Replace query parameter. For example, after modal is closed
+ * @public
+ * @param {String} param
+ * @param {String} newval
+ * @param {String} search
+ * @returns {Node} rendered HTML 
+ */
 export const replaceQueryParam = (param, newval, search) => {
 
     let regex = new RegExp("([?;&])" + param + "[^&;]*[;&]?");
@@ -167,18 +177,12 @@ export const replaceQueryParam = (param, newval, search) => {
     return (query.length > 2 ? query + "&" : "?") + (newval ? param + "=" + newval : '');
 }
 
-export const getPageNumberOld = () => {
-
-    let url = window.location.href.split('/');
-    let page = url[url.length-1];
-    let pageN = 1;
-    if(page.indexOf('page')==0){
-      pageN = page.replace('page', '').replace('#', '');
-    }
-    // console.log(pageN);
-    return parseInt(pageN);
-}
-
+/**
+ * @name getPageNumber
+ * @description Get pagination muber from URL parameters
+ * 
+ * @returns {String} timestamp
+ */
 export const getPageNumber = () => {
 
     let urlParams = new URLSearchParams(window.location.search);
@@ -187,6 +191,14 @@ export const getPageNumber = () => {
     return parseInt(page);
 }
 
+/**
+ * @name getPagination
+ * @description Create pagination menu links
+ * 
+ * @returns {Method} __
+ * @returns {Object} meta
+ * @returns {Method} cb
+ */
 export const getPagination = (__, meta, cb) => {
 
     if(typeof(meta) === 'undefined'){ document.querySelector("#listing_info").innerHTML = __('no records to display'); return; }
@@ -195,7 +207,6 @@ export const getPagination = (__, meta, cb) => {
     if(offset>meta.total_records) offset = meta.total_records;
 
     document.querySelector("#listing_info").innerHTML = __("Showing %1$ to %2$ of %3$ entries", (1+meta.offset), (offset), meta.total_records);
-    //  "Showing "+(1+meta.offset)+" to "+(offset)+" of "+meta.total_records+" entries";
 
     let pbc = Math.ceil(meta.total_records / meta.limit);
     document.querySelector("#listing_paginate").style.display = (pbc < 2) ? "none" : "block";
@@ -233,12 +244,8 @@ export const getPagination = (__, meta, cb) => {
             // update url
             if (window.history.replaceState) {
 
-                // let url = window.location.href.split('/page');
-                // let urlF = (url[0]+'/page'+p).replace('//page', '/page');
-
                 let str = window.location.search;
                 str = replaceQueryParam('page', p, str);
-                // window.location = window.location.pathname + str
 
                 // prevents browser from storing history with each change:
                 window.history.replaceState("kenzap-cloud", document.title, window.location.pathname + str);
@@ -263,6 +270,12 @@ export const getAPI = () => {
     return window.location.host.indexOf("localhost") == 0 ? "https://api.myticket-dev.app.kenzap.cloud/" : "https://api.myticket.app.kenzap.cloud/";
 }
 
+/**
+ * Converts string price to to Decimal format
+ * @public
+ * @param {String} price
+ * @returns {String} formatted price 
+ */
 export const makeNumber = function(price) {
 
     price = price ? price : 0;
@@ -271,16 +284,22 @@ export const makeNumber = function(price) {
     return price;
 }
 
+/**
+ * Generates random alphanumeric id
+ * @public
+ * @param {Integer} length
+ * @returns {String} generated string 
+ */
 export const makeid = function(length = 6) {
     return Math.random().toString(36).substring(2, length+2);
 }
 
 /**
-* Email format validation script
-* 
-* @param string email
-* @return string
-*/
+ * Email format validation script
+ * 
+ * @param string email
+ * @return string
+ */
 export const validateEmail = (email) => {
 
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,14})+$/.test(email)){
@@ -335,11 +354,11 @@ const luhnCheck = val => {
 }
 
 /**
-* creditCardValidation
-* 
-* @param string email
-* @return string
-*/
+ * creditCardValidation
+ * 
+ * @param string email
+ * @return string
+ */
 export const creditCardValidation = (creditCradNum) => {
 
     let regEx = /^5[1-5][0-9]{14}$|^2(?:2(?:2[1-9]|[3-9][0-9])|[3-6][0-9][0-9]|7(?:[01][0-9]|20))[0-9]{12}$/;
@@ -354,9 +373,9 @@ export const creditCardValidation = (creditCradNum) => {
 } 
 
 /**
-* Render price
-* @public
-*/
+ * Render price
+ * @public
+ */
 export const priceFormat = (_this, price) => {
 
     price = makeNumber(price);
@@ -376,6 +395,13 @@ export const priceFormat = (_this, price) => {
     return price;
 }
 
+/**
+ * Convert hex color code to RGB or RGBA
+ * @public
+ * @param {String} hex - hex code
+ * @param {String} alpha - transparency
+ * @return {String} rgb
+ */
 export const loadDependencies = (dep, cb) => {
 
     // dependency already loaded, skip
@@ -413,6 +439,13 @@ export const loadDependencies = (dep, cb) => {
     return true;
 }
 
+/**
+ * Convert hex color code to RGB or RGBA
+ * @public
+ * @param {String} hex - hex code
+ * @param {String} alpha - transparency
+ * @return {String} rgb
+ */
 export const hexToRGB = (hex, alpha) => {
     
     let r,  g,  b;
